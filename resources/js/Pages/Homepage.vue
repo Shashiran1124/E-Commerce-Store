@@ -227,7 +227,7 @@ export default {
       }
     },
     goToLogin(){
-      const newTab = window.open('/login', 'Registration');
+      const newTab = window.open('/login', 'Login');
       if (newTab) {
         newTab.document.title = 'Log-in';  // Set the title dynamically
       }

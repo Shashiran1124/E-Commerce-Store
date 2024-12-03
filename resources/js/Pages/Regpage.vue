@@ -1,7 +1,7 @@
 <template>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/CSS/Regpage.css" />
-  <title>Registration</title>
+
   <!-- Navigation Bar -->
   <nav class="navbar">
       <div class="logo">Pick & Pay</div>
@@ -273,15 +273,6 @@ export default {
         });
         return;
       }
-
-      this.loading = true;
-      Swal.fire({
-        title: 'Processing...',
-        text: 'Please wait while we create your account.',
-        icon: 'info',
-        showConfirmButton: false,
-        allowOutsideClick: false,
-      });
 
       try {
         const response = await this.$inertia.post('/register', {

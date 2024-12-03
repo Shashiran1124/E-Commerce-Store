@@ -26,10 +26,30 @@
 <div class="main-content">
   <!-- Filter Panel -->
   <aside class="filter-panel">
-    <h3>Filters</h3>
+    <h4 style="font-size:larger;">Filter By:</h4>
+    <br>
+    
     
     <!-- Price Range Filter -->
     <div class="filter-section">
+      <h4>Category</h4>
+      <div class="category">
+        <ul>
+          <li>
+            <input type="checkbox" id="fashion" v-model="selectedBrands" value="Fashion" />
+          <label for="brand1"> Fashion</label>
+          </li>
+          <li>
+            <input type="checkbox" id="electronics" v-model="selectedBrands" value="Electronics" />
+          <label for="brand1"> Electronics</label>
+          </li>
+          <li>
+            <input type="checkbox" id="homeApplicants" v-model="selectedBrands" value="Home Applicants" />
+          <label for="brand1"> Home Applicants</label>
+          </li>
+        </ul>
+      </div>
+      <br>
       <h4>Price Range</h4>
       <div class="price-range">
         <input
@@ -70,16 +90,16 @@
       <h4>Brand</h4>
       <ul>
         <li>
-          <input type="checkbox" id="brand1" v-model="selectedBrands" value="Brand 1" />
-          <label for="brand1">Brand 1</label>
+          <input type="checkbox" id="nike" v-model="selectedBrands" value="Nike" />
+          <label for="brand1"> Nike</label>
         </li>
         <li>
           <input type="checkbox" id="brand2" v-model="selectedBrands" value="Brand 2" />
-          <label for="brand2">Brand 2</label>
+          <label for="brand2"> Brand 2</label>
         </li>
         <li>
           <input type="checkbox" id="brand3" v-model="selectedBrands" value="Brand 3" />
-          <label for="brand3">Brand 3</label>
+          <label for="brand3"> Brand 3</label>
         </li>
       </ul>
     </div>
@@ -90,15 +110,15 @@
       <ul>
         <li>
           <input type="radio" name="rating" id="rating4" value="4" v-model="selectedRating" />
-          <label for="rating4">4+ Stars</label>
+          <label for="rating4"> 4+ Stars</label>
         </li>
         <li>
           <input type="radio" name="rating" id="rating3" value="3" v-model="selectedRating" />
-          <label for="rating3">3+ Stars</label>
+          <label for="rating3"> 3+ Stars</label>
         </li>
     <li>
          <input type="radio" name="rating" id="ratingAll" value="" v-model="selectedRating" />
-         <label for="ratingAll">All Ratings</label>
+         <label for="ratingAll"> All Ratings</label>
     </li>
 
       </ul>
@@ -118,8 +138,9 @@
             <div class="product" v-for="product in filteredProducts" :key="product.id">
                 <img :src="product.image" :alt="product.name" class="product-image" />
                 <h3 class="product-name">{{ product.name }}</h3>
-                <p class="product-brand">{{ product.brand }}</p>
-                <p class="product-price">${{ product.price }}</p>
+                <p class="product-brand">Brand: {{ product.brand }}</p>
+                <p class="product-price">Price: ${{ product.price }}</p>
+                <p class="product-category">Category: {{ product.category }}</p>
                 <p class="product-rating">Rating:
                      <span>
                         <i class="fas fa-star" v-for="i in product.rating" :key="i" style="color: gold;"></i>
@@ -128,11 +149,49 @@
                     {{ product.rating }} Stars
                 </p>
                 <!-- Add to Cart Button -->
-                <button class="add-to-cart" @click="showModal = true">Add to Cart</button>
-
+                <button class="add-to-cart" @click="openModal(product)">Add to Cart</button>
             </div>
-        </section>
+  </section>
+   <!-- Modal -->
+   <div v-if="showModal" class="modal">
+      <div class="modal-content">
+        <span class="close" @click="closeModal">&times;</span>
+
+        <!-- Product Details -->
+        <h2>{{ selectedProduct.name }}</h2>
+        <p>{{ selectedProduct.brand }}</p>
+        <p>Price: ${{ selectedProduct.price }}</p>
+        <p>Rating:
+                     <span>
+                        <i class="fas fa-star" v-for="i in selectedProduct.rating" :key="i" style="color: gold;"></i>
+                        <i class="far fa-star" v-for="i in (5 - selectedProduct.rating)" :key="5 - i" style="color: grey;"></i>
+                    </span>
+                    
+                </p>
+        <p>Description: {{ selectedProduct.description }}</p>
+
+        <!-- Slideshow -->
+        <div class="slideshow-container">
+          <div
+            v-for="(slideImages, index) in selectedProduct.slideImages"
+            :key="index"
+            class="slide"
+            :class="{ active: index === currentSlideIndex }"
+          >
+            <img :src="slideImages" class="slideshow-image" />
+          </div>
+          
+          <button class="prev" @click="changeSlide(-1)">&#10094;</button>
+          <button class="next" @click="changeSlide(1)">&#10095;</button>
+          <button class="slideButton">Add</button>
+        </div>
+        
+      </div>
     </div>
+
+</div>
+
+  
 
     <!-- Footer -->
   <footer class="footer">
@@ -184,19 +243,27 @@ export default {
       },
       selectedBrands: [],
       selectedRating: null,
-      
+      selectedCategories: [],
+
+      showModal: false,
+      selectedProduct: {},
+      currentSlideIndex: 0, // For slideshow navigation
+
       products: [
         {
           id: 1,
-          name: 'Product A',
-          brand: 'Brand 1',
+          name: 'Product Name: A',
+          brand: 'Nike',
           price: 100,
           rating: 4,
+          category: 'Fashion',
           image: '/images/electronics-1.jpeg',
+          slideImages: ['/images/electronics-1.jpeg', '/images/Laptop1.jpg', '/images/Headphone1.jpg'], // Add images array
+          description: "YO.. I'm Shashiran Perera....",
         },
         {
           id: 2,
-          name: 'Product B',
+          name: 'Product Name: B',
           brand: 'Brand 2',
           price: 200,
           rating: 3,
@@ -204,7 +271,50 @@ export default {
         },
         {
           id: 3,
-          name: 'Product C',
+          name: 'Product Name: C',
+          brand: 'Brand 3',
+          price: 150,
+          rating: 2,
+          image: '/images/Headphone1.jpg',
+        },
+        {
+          id: 3,
+          name: 'Product Name: C',
+          brand: 'Brand 3',
+          price: 150,
+          rating: 2,
+          image: '/images/Headphone1.jpg',
+        },{
+          id: 3,
+          name: 'Product Name: C',
+          brand: 'Brand 3',
+          price: 150,
+          rating: 4,
+          image: '/images/Headphone1.jpg',
+        },{
+          id: 3,
+          name: 'Product Name: C',
+          brand: 'Brand 3',
+          price: 150,
+          rating: 3,
+          image: '/images/Headphone1.jpg',
+        },{
+          id: 3,
+          name: 'Product Name: C',
+          brand: 'Brand 3',
+          price: 150,
+          rating: 2,
+          image: '/images/Headphone1.jpg',
+        },{
+          id: 3,
+          name: 'Product Name: C',
+          brand: 'Brand 3',
+          price: 150,
+          rating: 4,
+          image: '/images/Headphone1.jpg',
+        },{
+          id: 3,
+          name: 'Product Name: C',
           brand: 'Brand 3',
           price: 150,
           rating: 5,
@@ -220,7 +330,8 @@ export default {
           max: 1000
         },
         brands: [],
-        rating: null
+        rating: null,
+        categories: []
       },
     };
   },
@@ -237,7 +348,10 @@ export default {
         // Filter by selected rating
         const isRatingValid = !this.appliedFilters.rating || product.rating >= Number(this.appliedFilters.rating);
 
-        return isPriceValid && isBrandValid && isRatingValid;
+        // Filter by selected categories
+        const isCategoryValid = this.selectedCategories.length === 0 || this.selectedCategories.includes(product.category);
+
+        return isPriceValid && isBrandValid && isRatingValid && isCategoryValid;
       });
     },
   },
@@ -252,7 +366,8 @@ export default {
           max: this.priceRange.max
         },
         brands: this.selectedBrands,
-        rating: this.selectedRating
+        rating: this.selectedRating,
+        categories: this.selectedCategories,// Store selected categories in appliedFilters
       };
 
       console.log("Filters applied:", this.appliedFilters);
@@ -265,11 +380,38 @@ export default {
 
     updatePriceRangeSlider() {
       this.priceRange.slider = this.priceRange.min;
-    }
-  }
-}
+    },
+    openModal(product) {
+      this.selectedProduct = { ...product }; // Populate the modal with product details
+      this.showModal = true;
+      this.currentSlideIndex = 0; // Reset slideshow index
+    },
+    closeModal() {
+      this.showModal = false;
+    },
+    changeSlide(direction) {
+    const slides = document.getElementsByClassName("slide"); // Updated to match the correct class
+    const totalSlides = slides.length;
 
+    // Remove active class from current slide
+    slides[this.currentSlideIndex].classList.remove("active");
 
+    // Calculate next slide index
+    this.currentSlideIndex =
+        (this.currentSlideIndex + direction + totalSlides) % totalSlides;
+
+    // Add active class to the new current slide
+    slides[this.currentSlideIndex].classList.add("active");
+  },
+    
+  },
+  mounted() {
+    // Initialize slideshow visibility
+    const slides = document.getElementsByClassName("slide");
+    if (slides.length > 0) slides[0].classList.add("active");
+  },
+  
+};
 </script>
   
  
