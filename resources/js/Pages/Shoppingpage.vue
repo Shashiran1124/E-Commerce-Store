@@ -158,8 +158,8 @@
         <span class="close" @click="closeModal">&times;</span>
 
         <!-- Product Details -->
-        <h2>{{ selectedProduct.name }}</h2>
-        <p>{{ selectedProduct.brand }}</p>
+        <h2 class="name-of-product">{{ selectedProduct.name }}</h2>
+        <p> Brand: {{ selectedProduct.brand }}</p>
         <p>Price: ${{ selectedProduct.price }}</p>
         <p>Rating:
                      <span>
@@ -168,7 +168,10 @@
                     </span>
                     
                 </p>
-        <p>Description: {{ selectedProduct.description }}</p>
+        
+        <p>Description:</p>       
+        <p  class="description">{{ selectedProduct.description }}</p>
+        
 
         <!-- Slideshow -->
         <div class="slideshow-container">
@@ -252,14 +255,14 @@ export default {
       products: [
         {
           id: 1,
-          name: 'Product Name: A',
+          name: 'Nike Cap',
           brand: 'Nike',
           price: 100,
           rating: 4,
           category: 'Fashion',
           image: '/images/electronics-1.jpeg',
           slideImages: ['/images/electronics-1.jpeg', '/images/Laptop1.jpg', '/images/Headphone1.jpg'], // Add images array
-          description: "YO.. I'm Shashiran Perera....",
+          description: "Stay stylish and comfortable with this premium Nike cap. Crafted from durable, breathable materials, it features an adjustable strap for a perfect fit and the iconic Nike swoosh for a sleek, sporty look. Ideal for workouts, outdoor adventures, or everyday wear.",
         },
         {
           id: 2,
