@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!--For png's-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/CSS/Shoppingpage.css" />
-
+    <title>Pick & Pay</title>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">Pick & Pay</div>
@@ -36,15 +36,15 @@
       <div class="category">
         <ul>
           <li>
-            <input type="checkbox" id="fashion" v-model="selectedBrands" value="Fashion" />
-          <label for="brand1"> Fashion</label>
+            <input type="checkbox" id="fashion" v-model="selectedCategories" value="Fashion" />
+          <label for="Fashion"> Fashion</label>
           </li>
           <li>
-            <input type="checkbox" id="electronics" v-model="selectedBrands" value="Electronics" />
+            <input type="checkbox" id="electronics" v-model="selectedCategories" value="Electronics" />
           <label for="brand1"> Electronics</label>
           </li>
           <li>
-            <input type="checkbox" id="homeApplicants" v-model="selectedBrands" value="Home Applicants" />
+            <input type="checkbox" id="homeApplicants" v-model="selectedCategories" value="Home Applicants" />
           <label for="brand1"> Home Applicants</label>
           </li>
         </ul>
@@ -270,6 +270,7 @@ export default {
           brand: 'Brand 2',
           price: 200,
           rating: 3,
+          category: 'Electronics',
           image: '/images/Laptop1.jpg',
         },
         {
@@ -278,6 +279,7 @@ export default {
           brand: 'Brand 3',
           price: 150,
           rating: 2,
+          category: 'Home Applicants',
           image: '/images/Headphone1.jpg',
         },
         {
@@ -352,7 +354,7 @@ export default {
         const isRatingValid = !this.appliedFilters.rating || product.rating >= Number(this.appliedFilters.rating);
 
         // Filter by selected categories
-        const isCategoryValid = this.selectedCategories.length === 0 || this.selectedCategories.includes(product.category);
+        const isCategoryValid = this.appliedFilters.categories.length === 0 || this.appliedFilters.categories.includes(product.category);
 
         return isPriceValid && isBrandValid && isRatingValid && isCategoryValid;
       });
