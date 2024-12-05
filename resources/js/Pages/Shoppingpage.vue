@@ -186,7 +186,7 @@
           
           <button class="prev" @click="changeSlide(-1)">&#10094;</button>
           <button class="next" @click="changeSlide(1)">&#10095;</button>
-          <button class="slideButton">Add</button>
+          <button class="slideButton" @click="GoToPayment">Add</button>
         </div>
         
       </div>
@@ -407,6 +407,9 @@ export default {
 
     // Add active class to the new current slide
     slides[this.currentSlideIndex].classList.add("active");
+  },
+  GoToPayment(){
+    this.$inertia.visit('/payment');
   },
     
   },
