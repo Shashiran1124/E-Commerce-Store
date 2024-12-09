@@ -1,4 +1,5 @@
 <template>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"><!--For png's-->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/CSS/Homepage.css" />
   <div class="homepage">
@@ -31,7 +32,7 @@
         <li><strong>Great Deals:</strong> Unbeatable prices and exclusive offers just for you.</li>
         <li><strong>Fast Delivery:</strong> Your favorite items, delivered to your doorstep in no time.</li>
       </ul>
-      <button class="explore-btn">Ready to Explore? Start Shopping Now!</button>
+      <button class="explore-btn"><a href="/login">Ready to Explore? Start Shopping Now!</a></button>
     </section>
 
 
@@ -150,7 +151,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2024 E-Shop. All Rights Reserved.</p>
+        <p>&copy; 2024 Pick & Pay. All Rights Reserved.</p>
       </div>
     </footer>
   
@@ -173,9 +174,9 @@ export default {
         { id: 3, name: 'Home Appliances', image: '/images/Homestuff.jpg' },
       ],
       products: [
-        { id: 1, name: 'Smartphone', price: '$299', image: '/images/smartPhones1.jpg' },
+        { id: 1, name: 'iphone 15', price: '$999', image: '/images/apple iphone15.jpg' },
         { id: 2, name: 'Headphones', price: '$99', image: '/images/Headphone1.jpg' },
-        { id: 3, name: 'Laptop', price: '$899', image: '/images/Laptop1.jpg' },
+        { id: 3, name: 'Nike Cap', price: '$40', image: '/images/nike1.2.jpg' },
       ],
       priceRange: {
         min: 0,
@@ -188,11 +189,11 @@ export default {
       // Slideshow data
       currentSlideIndex: 0, // Keeps track of the current slide
       slides: [
-        '/images/22.jpg',
-        '/images/electronic final.jpg',
+        '/images/new9.jpg',
+        '/images/new10.jpg',
         '/images/Fashion1.jpeg',
         '/images/Homestuff.jpg',
-        '/images/smartphones final.jpg',
+        '/images/new8.jpg',
       ],
     };
   },

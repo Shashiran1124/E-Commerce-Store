@@ -2,10 +2,9 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: rgba(8, 10, 19, 0.823); /* Semi-transparent white background */
+    background-color: black;
     backdrop-filter: blur(10px); /* Apply blur effect to the background */
     background-size: cover;
-    background-position: center center;
     height: 100vh;
     
     
@@ -28,6 +27,7 @@ body {
   .navbar .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: yellow;
   }
   
   .nav-links {
@@ -127,6 +127,17 @@ body {
     margin-top: 2rem;
     font-size: 0.9rem;
   }
+  .social-icons{
+    position: relative;
+    
+  }
+  .social-icons a{
+    position:relative;
+    display: flex;
+    padding: 10px;
+    margin-right: 20px;
+    margin:auto
+  }
   
  
   
@@ -137,14 +148,12 @@ body {
   .welcome-section {
     height: 650px;
     width: auto;
-    background-image: url('/images/9.jpg');
-    background-position: center center;
+    background-image: url('/images/newest1.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: darken;
     text-align: center;
     padding: 40px 20px;
-    margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -155,7 +164,7 @@ body {
   
   .welcome-section h1 {
     font-size: 2.5rem;
-    background: linear-gradient(to right, #00fffb, #e3ff11);
+    background: linear-gradient(to right, #eeff00, #e3ff11);
     background-clip: text; /* Clip the gradient to the text */
     color:  transparent;
     margin-bottom: 10px;
@@ -181,12 +190,13 @@ body {
   
   .welcome-section .explore-btn {
     background-color: #007bff;
-    color: white;
+    color: rgb(0, 0, 0);
     border: none;
-    padding: 12px 24px;
+    padding: 16px 28px;
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 50px;
     transition: background-color 0.3s ease;
   }
   
@@ -196,7 +206,7 @@ body {
   
   /* Hero Section */
   .slideshow-container {
-    margin-top: 30px;
+    margin-top: 5px;
     margin-left: 2.5%;
     position: relative;
     max-width: 95%;
@@ -232,10 +242,10 @@ body {
   }
   /* Slide transition movement */
 .slide-next {
-  transform: translateX(100%); /* Move next slide in */
+  transform: translateX(100%); 
   }
   .slide-prev {
-    transform: translateX(-100%); /* Move previous slide in */
+    transform: translateX(-100%); 
   }
 
   /*Slieshow Arrow styles */
@@ -436,7 +446,7 @@ body {
 }
 
 .about-us-section ul li strong {
-  color: #bd0000;
+  color: #ffee07;
 }
 
 .about-us-section p:last-child {

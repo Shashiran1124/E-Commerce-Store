@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\Auth\PaymentController2;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,27 @@ Route::get('/login', function () {
 // Combined validation for email/username and password
 Route::post('/validate-credentials', [LoginController::class, 'validateCredentials']);
 
+//Forgot Password route
+Route::get('/forgotpassword', function () {
+    return Inertia::render('Forgot-Passwordpage');
+});
+
+Route::post('/forgotpassword', [PasswordResetController::class, 'sendResetCode'])->name('forgot.password');
+
+//Enter-Verfication Code route
+Route::get('/verification',function(){
+    return Inertia::render('Verificationpage');
+});
+
+Route::post('/verification', [PasswordResetController::class, 'verifyResetCode'])->name('verify.reset.code');
+
+//Set-New Password route
+Route::get('/resetpassword',function(){
+    return Inertia::render('ResetPasswordpage');
+});
+
+Route::post('/resetpassword', [PasswordResetController::class, 'resetPassword']);
+
 // Shoppingpage route
 Route::get('/shopping', function () {
     return Inertia::render('Shoppingpage', [
@@ -44,6 +66,7 @@ Route::get('/shopping', function () {
         ],
     ]);
 })->name('shopping');
+
 
 //Payment route
 Route::get('/payment', function(){

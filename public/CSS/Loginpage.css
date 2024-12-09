@@ -1,7 +1,10 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(90deg, #4472a6, #4472a6); /* Gradient background */
+    background-image: url("/images/newest5.jpg");
+    background-size: cover;
+    background-position: center center;
+   
     
     
   }
@@ -11,14 +14,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #1E3A8A;
+    background: #0e0f12;
     color: white;
+    border-color: white;
+    border-bottom-width:   2px;
     padding: 1.5rem 3rem; /* More padding for better spacing */
   }
   
   .navbar .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: gold;
   }
   
   .nav-links {
@@ -46,6 +52,8 @@ body {
 .footer {
     background: #1F1F1F;
     color: white;
+    border-color: white;
+    border-top-width: 2px;
     padding: 1rem 0; /* More spacious footer */
     margin-top: 10rem;
   }
@@ -103,8 +111,10 @@ body {
 .login-form {
     max-width: 400px;
     margin: 4rem auto;
-    background-color: white;
-    border-radius: 10px;
+    mix-blend-mode: screen;
+    border:2px solid white;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -112,25 +122,23 @@ body {
 .login-form h1 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: #007bff;
+    color: greenyellow;
     text-align: center;
 }
 
 .login-form p {
     text-align: center;
-    color: #666;
+    color: white;
     margin-bottom: 2rem;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
+
 
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #333;
+    color: white;
 }
 
 .form-group input {
@@ -145,6 +153,10 @@ body {
 .form-group input:focus {
     border-color: #007bff;
     outline: none;
+}
+.forgot-password p{
+  font-size: normal;
+  color: #007bff;
 }
 
 .is-invalid {
@@ -217,6 +229,7 @@ button[type="submit"]:disabled {
 .signup-link {
     text-align: center;
     margin-top: 1.5rem;
+    color: white;
 }
 
 .signup-link a {

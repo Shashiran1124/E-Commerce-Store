@@ -13,13 +13,9 @@
           <li><a href="#">Categories</a></li>
           <li><a href="#">Deals</a></li>
           <li><a href="#">Cart</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="/">About Us</a></li>
         </ul>
       </nav>
-  
-
-
-
 
       <div class="login-form">
         <h1>Welcome Back</h1>
@@ -50,6 +46,9 @@
     />
     <small v-if="errors.password" class="error-text">{{ errors.password }}</small>
   </div>
+  <div class="forgot-password">
+    <p><a href="/forgotpassword">forgot password?</a></p>
+  </div>
 
   <!-- Submit Button -->
   <button type="submit" :disabled="loading">Login</button>
@@ -57,7 +56,7 @@
 
   
         <div class="signup-link">
-          <p>Don't have an account? <a href="/register">Sign up here</a></p>
+          Don't have an account? <a href="/register">Sign up here</a>
         </div>
       </div>
   
@@ -141,6 +140,7 @@
           title: 'Login Failed',
           text: 'Invalid username or password',
           icon: 'error',
+          position:'top',
           confirmButtonText: 'OK',
         });
         return;
@@ -160,6 +160,7 @@
             title: 'Login Failed',
             text: response.data.message, // Error message from backend
             icon: 'error',
+            position:'top',
             confirmButtonText: 'OK',
           });
         } else {
@@ -167,6 +168,7 @@
             title: 'Success',
             text: 'You have logged in successfully.',
             icon: 'success',
+            position:'top',
             confirmButtonText: 'OK',
           }).then(() => {
             this.$inertia.visit('/shopping'); // Redirect to homepage or dashboard
@@ -175,8 +177,9 @@
       } catch (error) {
         Swal.fire({
           title: 'Login Failed',
-          text: 'An error occurred. Please try again.',
+          text: 'Invalid username or password',
           icon: 'error',
+          position:'top',
           confirmButtonText: 'OK',
         });
       } finally {

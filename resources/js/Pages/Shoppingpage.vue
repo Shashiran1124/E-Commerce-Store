@@ -11,7 +11,7 @@
           <li><a href="#">Shop</a></li>
           <li><a href="#">Categories</a></li>
           <li><a href="#">Deals</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="/">About Us</a></li>
           <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a></li>
           <li><a href="#" class="profile-icon"><i class="fas fa-user"></i></a></li>
         </ul>
@@ -94,12 +94,24 @@
           <label for="brand1"> Nike</label>
         </li>
         <li>
-          <input type="checkbox" id="brand2" v-model="selectedBrands" value="Brand 2" />
-          <label for="brand2"> Brand 2</label>
+          <input type="checkbox" id="apple" v-model="selectedBrands" value="Apple"  />
+          <label for="brand2"> Apple</label>
         </li>
         <li>
-          <input type="checkbox" id="brand3" v-model="selectedBrands" value="Brand 3" />
-          <label for="brand3"> Brand 3</label>
+          <input type="checkbox" id="samsung" v-model="selectedBrands" value="Samsung" />
+          <label for="brand3"> Samsung</label>
+        </li>
+        <li>
+          <input type="checkbox" id="lg" v-model="selectedBrands" value="LG" />
+          <label for="brand4"> LG</label>
+        </li>
+        <li>
+          <input type="checkbox" id="adidas" v-model="selectedBrands" value="Adidas" />
+          <label for="brand5"> Adidas</label>
+        </li>
+        <li>
+          <input type="checkbox" id="sony" v-model="selectedBrands" value="Sony" />
+          <label for="brand6"> Sony</label>
         </li>
       </ul>
     </div>
@@ -257,73 +269,96 @@ export default {
           id: 1,
           name: 'Nike Cap',
           brand: 'Nike',
-          price: 100,
+          price: 40,
           rating: 4,
           category: 'Fashion',
-          image: '/images/electronics-1.jpeg',
-          slideImages: ['/images/electronics-1.jpeg', '/images/Laptop1.jpg', '/images/Headphone1.jpg'], // Add images array
+          image: '/images/nike1.3.webp',
+          slideImages: ['/images/nike1.jpg', '/images/nike1.3.webp'], // Add images array
           description: "Stay stylish and comfortable with this premium Nike cap. Crafted from durable, breathable materials, it features an adjustable strap for a perfect fit and the iconic Nike swoosh for a sleek, sporty look. Ideal for workouts, outdoor adventures, or everyday wear.",
         },
         {
           id: 2,
-          name: 'Product Name: B',
-          brand: 'Brand 2',
-          price: 200,
+          name: 'Apple iphone 15',
+          brand: 'Apple',
+          price: 999,
           rating: 3,
           category: 'Electronics',
-          image: '/images/Laptop1.jpg',
+          image: '/images/apple iphone15.jpg',
+          slideImages:['/images/apple iphone15.jpg'],
+          description:'Experience innovation like never before with the Apple iPhone 15. Featuring a stunning 6.1-inch Super Retina XDR display, lightning-fast A16 Bionic chip, and cutting-edge camera technology, it captures every moment in unparalleled detail. Designed with sleek aluminum and glass, this iPhone is not just a device; it’s a statement. Upgrade your lifestyle today!'
         },
         {
           id: 3,
-          name: 'Product Name: C',
-          brand: 'Brand 3',
-          price: 150,
+          name: 'LG Air Conditioner',
+          brand: 'LG',
+          price: 799,
           rating: 2,
           category: 'Home Applicants',
-          image: '/images/Headphone1.jpg',
+          image: '/images/LG-air-conditioner1.jpeg',
+          description:'Keep your home cool and comfortable with the LG Air Conditioner. Equipped with Dual Inverter technology, it ensures energy-efficient cooling with whisper-quiet operation. Its stylish design blends seamlessly with modern interiors, while features like auto-clean and smart connectivity make it the perfect addition to your home. Breathe fresh, live cool!'
         },
         {
-          id: 3,
-          name: 'Product Name: C',
-          brand: 'Brand 3',
-          price: 150,
+          id: 1,
+          name: 'Adidas Shoes',
+          brand: 'Adidas',
+          price: 79,
           rating: 2,
-          image: '/images/Headphone1.jpg',
+          category: 'Fashion',
+          image: '/images/adidas2.1.jpg',
+          slideImages:['/images/adidas2.webp'],
+          description:'Take your performance to the next level with Adidas Sports Shoes. Engineered with lightweight materials and responsive cushioning, these shoes deliver unmatched comfort and support for every stride. Whether on the track, trail, or gym, Adidas keeps you moving with style and confidence. Push limits, conquer goals.'
+
         },{
           id: 3,
-          name: 'Product Name: C',
-          brand: 'Brand 3',
-          price: 150,
+          name: 'Samsung-Oven',
+          brand: 'Samsung',
+          price: 499,
+          category: 'Home Applicants',
           rating: 4,
-          image: '/images/Headphone1.jpg',
+          image: '/images/Samsung-Oven.jpg',
+          description:'Cook smarter with the Samsung Oven, your ultimate kitchen companion. Featuring advanced convection technology, it ensures perfectly even cooking every time. The intuitive controls and sleek design make it easy to bake, roast, and grill your favorite dishes. Turn ordinary meals into culinary masterpieces with Samsung.'
         },{
-          id: 3,
-          name: 'Product Name: C',
-          brand: 'Brand 3',
-          price: 150,
-          rating: 3,
-          image: '/images/Headphone1.jpg',
-        },{
-          id: 3,
-          name: 'Product Name: C',
-          brand: 'Brand 3',
-          price: 150,
-          rating: 2,
-          image: '/images/Headphone1.jpg',
-        },{
-          id: 3,
-          name: 'Product Name: C',
-          brand: 'Brand 3',
-          price: 150,
-          rating: 4,
-          image: '/images/Headphone1.jpg',
-        },{
-          id: 3,
-          name: 'Product Name: C',
-          brand: 'Brand 3',
-          price: 150,
+          id: 2,
+          name: 'SAMSUNG-GALAXY-S8',
+          brand: 'Samsung',
+          price: 800,
+          category: 'Electronics',
           rating: 5,
-          image: '/images/Headphone1.jpg',
+          image: '/images/SAMSUNG-GALAXY-S8.jpeg',
+          description:'Discover elegance and power with the Samsung Galaxy S8. Featuring an Infinity Display that redefines boundaries, a high-performance Exynos processor, and an exceptional camera, this smartphone is a marvel of innovation. Perfect for multitaskers and creatives, the Galaxy S8 is your gateway to endless possibilities.'
+          
+        },{
+          id: 2,
+          name: 'Sony Playstation-4',
+          brand: 'Brand 3',
+          price: 899,
+          category: 'Electronics',
+          rating: 2,
+          image: '/images/Sony Playstation4 pro.jpg',
+          slideImages:['/images/Sony Playstation4 pro.jpg'],
+          description:'Dive into a world of immersive gaming with the Sony PlayStation 4. Featuring a vast library of games, stunning graphics, and a DualShock controller for seamless gameplay, the PS4 is the ultimate entertainment hub. Whether battling foes or exploring new worlds, every adventure feels real with PlayStation.'
+
+        },{
+          id: 1,
+          name: 'Nike Sports Backpack',
+          brand: 'Brand 3',
+          price: 99,
+          category:'Fashion',
+          rating: 4,
+          image: '/images/nike3.1.jpeg',
+          slideImages:['/images/nike3.jpg','/images/nike3.2.jpg','/images/nike3.3.jpg'],
+          description:'Carry your essentials in style with the Nike Sports Backpack. Designed for athletes and adventurers, it features multiple compartments, durable fabric, and ergonomic straps for all-day comfort. Perfect for the gym, school, or travel—wherever you go, Nike has your back.'
+
+        },{
+          id: 1,
+          name: 'Nike Sports Shoes',
+          brand: 'Nike',
+          price: 55,
+          category:'Fashion',
+          rating: 5,
+          image: '/images/nike2.1.webp',
+          slideImages:['/images/nike2.webp','/images/nike2.2.jpg','/images/nike2.3.jpg'],
+          description:'Carry your essentials in style with the Nike Sports Backpack. Designed for athletes and adventurers, it features multiple compartments, durable fabric, and ergonomic straps for all-day comfort. Perfect for the gym, school, or travel—wherever you go, Nike has your back.'
         },
         // Add more product objects here
       ],
