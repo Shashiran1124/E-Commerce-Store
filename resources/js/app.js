@@ -1,5 +1,8 @@
 import './bootstrap';
 import '../css/app.css';
+import VueLazyload from 'vue-lazyload';
+
+
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
@@ -15,6 +18,7 @@ createInertiaApp({
         return createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue)
+            .use(VueLazyload) // Register VueLazyload plugin here
             .mount(el);
     },
     progress: {
