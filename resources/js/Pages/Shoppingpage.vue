@@ -330,7 +330,7 @@ export default {
         },{
           id: 2,
           name: 'Sony Playstation-4',
-          brand: 'Brand 3',
+          brand: 'Sony',
           price: 899,
           category: 'Electronics',
           rating: 2,
