@@ -58,7 +58,7 @@ export default {
 
         // Navigate to the reset password page if the response is successful
         if (response.status === 200) {
-          setTimeout(()=> {this.$inertia.visit('/login');},3000);
+          setTimeout(()=> {this.$inertia.visit('/verification');},2000);
         }
       } catch (err) {
         this.error = err.response?.data?.message || 'An error occurred. Please try again.';
